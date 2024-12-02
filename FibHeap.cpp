@@ -1,6 +1,3 @@
-//
-// Created by Ibrahim Ahmed and Omar Ismail on 11/25/2024.
-//
 
 #include "FibHeap.h"
 
