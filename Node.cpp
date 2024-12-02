@@ -1,6 +1,3 @@
-//
-// Created by Ibrahim Abdelfattah on 11/26/2024.
-//
 
 #include "Node.h"
 
