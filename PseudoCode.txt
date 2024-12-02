@@ -1,0 +1,15 @@
+// Pseudocode for Fibonacci Heap Insert operation
+
+// Insert a node into the Fibonacci Heap
+x:degree = 0
+x:parent = NIL
+x:child = NIL
+x:mark = FALSE
+if H:min == NIL then
+    create a root list for H containing just x
+    H:min = x
+else
+    insert x into H’s root list
+    if x:key < H:min:key then
+        H:min = x
+H:n = H:n + 1
