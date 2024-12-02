@@ -1,6 +1,4 @@
-//
-// Created by Ibrahim Abdelfattah on 11/26/2024.
-//
+
 #ifndef NODE_H
 #define NODE_H
 #include <iostream>
