@@ -16,4 +16,6 @@ add_executable(FabHeap main.cpp
         FibHeap.cpp
         FibHeap.h
         Node.h
-        Node.cpp)
+        Node.cpp
+        DLL.h
+        DLL.cpp)

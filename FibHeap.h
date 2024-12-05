@@ -1,4 +1,3 @@
-
 #ifndef FIBHEAP_H
 #define FIBHEAP_H
 
@@ -12,9 +11,10 @@
  * operations such as insertion, merging, extracting the minimum, and
  * decreasing or increasing keys.
  */
+template<typename T>
 class FibHeap {
 private:
-    Node *minimum; ///< Pointer to the node with the minimum key.
+    Node<T> *minimum; ///< Pointer to the node with the minimum key.
     int n; ///< Number of nodes in the heap.
 
 public:
@@ -33,7 +33,7 @@ public:
      * @pre Both nodes y and x must be non-null and have the same degree.
      * @post Node y is linked to node x as a child.
      */
-    void link(Node *y, Node *x);
+    void link(Node<T> *y, Node<T> *x);
 
     /**
      * @brief Consolidates the heap by combining trees of the same degree.
@@ -49,7 +49,7 @@ public:
      * @pre Both nodes x and y must be non-null, and x must be a child of y.
      * @post Node x is cut from its parent y and becomes a root.
      */
-    void cut(Node *x, Node *y);
+    void cut(Node<T> *x, Node<T> *y);
 
     /**
      * @brief Performs a cascading cut operation.
@@ -57,7 +57,7 @@ public:
      * @pre Node y must be non-null.
      * @post Cascading cut is performed starting from node y.
      */
-    void cascadingCut(Node *y);
+    void cascadingCut(Node<T> *y);
 
     /**
      * @brief Inserts a node into the heap.
@@ -65,7 +65,7 @@ public:
      * @pre Node x must be non-null.
      * @post Node x is inserted into the heap.
      */
-    void inset(Node *x);
+    void inset(Node<T> *x);
 
     /**
      * @brief Merges two Fibonacci Heaps into one.
@@ -75,7 +75,7 @@ public:
      * @pre Both heaps H1 and H2 must be non-null.
      * @post A new heap is created by merging H1 and H2.
      */
-    FibHeap *merge(FibHeap *H1, FibHeap *H2);
+    FibHeap<T>* merge(FibHeap<T> *H1, FibHeap<T> *H2);
 
     /**
      * @brief Extracts the minimum node from the heap.
@@ -83,7 +83,7 @@ public:
      * @pre The heap must not be empty.
      * @post The minimum node is removed from the heap.
      */
-    Node *extractMin();
+    Node<T>* extractMin();
 
     /**
      * @brief Displays the minimum node in the heap.
@@ -91,7 +91,7 @@ public:
      * @pre The heap must not be empty.
      * @post The minimum node is displayed.
      */
-    Node *displayMinimum();
+    Node<T>* displayMinimum();
 
     /**
      * @brief Decreases the key of a node.
@@ -100,7 +100,7 @@ public:
      * @pre Node x must be non-null, and k must be less than the current key of x.
      * @post The key of node x is decreased to k.
      */
-    void decreaseKey(Node *x, int k);
+    void decreaseKey(Node<T> *x, int k);
 
     /**
      * @brief Increases the key of a node.
@@ -109,7 +109,7 @@ public:
      * @pre Node x must be non-null, and k must be greater than the current key of x.
      * @post The key of node x is increased to k.
      */
-    void increaseKey(Node *x, int k);
+    void increaseKey(Node<T> *x, int k);
 
     /**
      * @brief Deletes a node from the heap.
@@ -117,7 +117,9 @@ public:
      * @pre Node x must be non-null.
      * @post Node x is deleted from the heap.
      */
-    void deleteNode(Node *x);
+    void deleteNode(Node<T> *x);
 };
+
+#include "FibHeap.cpp"
 
 #endif // FIBHEAP_H

@@ -1,49 +1,63 @@
-
 #include "FibHeap.h"
 
-void FibHeap::link(Node *y, Node *x) {
+template<typename T>
+void FibHeap<T>::link(Node<T> *y, Node<T> *x) {
     // Implementation here
 }
 
-void FibHeap::consolidate() {
+template<typename T>
+void FibHeap<T>::consolidate() {
     // Implementation here
 }
 
-void FibHeap::cut(Node *x, Node *y) {
+template<typename T>
+void FibHeap<T>::cut(Node<T> *x, Node<T> *y) {
     // Implementation here
 }
 
-void FibHeap::cascadingCut(Node *y) {
+template<typename T>
+void FibHeap<T>::cascadingCut(Node<T> *y) {
     // Implementation here
 }
 
-void FibHeap::inset(Node *x) {
+template<typename T>
+void FibHeap<T>::inset(Node<T> *x) {
     // Implementation here
 }
 
-FibHeap* FibHeap::merge(FibHeap *H1, FibHeap *H2) {
+template<typename T>
+FibHeap<T>* FibHeap<T>::merge(FibHeap<T> *H1, FibHeap<T> *H2) {
     // Implementation here
     return nullptr;
 }
 
-Node* FibHeap::extractMin() {
+template<typename T>
+Node<T>* FibHeap<T>::extractMin() {
     // Implementation here
     return nullptr;
 }
 
-Node* FibHeap::displayMinimum() {
+template<typename T>
+Node<T>* FibHeap<T>::displayMinimum() {
     // Implementation here
     return nullptr;
 }
 
-void FibHeap::decreaseKey(Node *x, int k) {
+template<typename T>
+void FibHeap<T>::decreaseKey(Node<T> *x, int k) {
     // Implementation here
 }
 
-void FibHeap::increaseKey(Node *x, int k) {
+template<typename T>
+void FibHeap<T>::increaseKey(Node<T> *x, int k) {
     // Implementation here
 }
 
-void FibHeap::deleteNode(Node *x) {
+template<typename T>
+void FibHeap<T>::deleteNode(Node<T> *x) {
     // Implementation here
 }
+
+// Explicit template instantiation
+template class FibHeap<int>;
+template class FibHeap<std::string>;

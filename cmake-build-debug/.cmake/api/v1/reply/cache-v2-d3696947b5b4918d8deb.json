@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/himoa/OneDrive/Documents/Faculty of Engineering - Ain Shams University/Sophomore - Fall 2024/CSE243 - Data Structures and Problem Solving/Project/FabHeap/cmake-build-debug"
+			"value" : "c:/Users/himoa/OneDrive/Documents/Faculty of Engineering - Ain Shams University/Sophomore - Fall 2024/CSE243 - Data Structures and Problem Solving/Project/FabHeap - Public/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -575,7 +575,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/himoa/OneDrive/Documents/Faculty of Engineering - Ain Shams University/Sophomore - Fall 2024/CSE243 - Data Structures and Problem Solving/Project/FabHeap/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/himoa/OneDrive/Documents/Faculty of Engineering - Ain Shams University/Sophomore - Fall 2024/CSE243 - Data Structures and Problem Solving/Project/FabHeap - Public/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -647,7 +647,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/himoa/OneDrive/Documents/Faculty of Engineering - Ain Shams University/Sophomore - Fall 2024/CSE243 - Data Structures and Problem Solving/Project/FabHeap"
+			"value" : "C:/Users/himoa/OneDrive/Documents/Faculty of Engineering - Ain Shams University/Sophomore - Fall 2024/CSE243 - Data Structures and Problem Solving/Project/FabHeap - Public"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1279,7 +1279,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/himoa/OneDrive/Documents/Faculty of Engineering - Ain Shams University/Sophomore - Fall 2024/CSE243 - Data Structures and Problem Solving/Project/FabHeap/cmake-build-debug"
+			"value" : "C:/Users/himoa/OneDrive/Documents/Faculty of Engineering - Ain Shams University/Sophomore - Fall 2024/CSE243 - Data Structures and Problem Solving/Project/FabHeap - Public/cmake-build-debug"
 		},
 		{
 			"name" : "FabHeap_IS_TOP_LEVEL",
@@ -1303,7 +1303,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/himoa/OneDrive/Documents/Faculty of Engineering - Ain Shams University/Sophomore - Fall 2024/CSE243 - Data Structures and Problem Solving/Project/FabHeap"
+			"value" : "C:/Users/himoa/OneDrive/Documents/Faculty of Engineering - Ain Shams University/Sophomore - Fall 2024/CSE243 - Data Structures and Problem Solving/Project/FabHeap - Public"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
