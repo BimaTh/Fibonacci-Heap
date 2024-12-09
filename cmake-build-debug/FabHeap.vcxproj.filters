@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\ahmed\Documents\GitHub\Project\Fibonacci-Heap\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ahmed\Documents\GitHub\Project\Fibonacci-Heap\FibHeap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ahmed\Documents\GitHub\Project\Fibonacci-Heap\Node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ahmed\Documents\GitHub\Project\Fibonacci-Heap\DLL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\ahmed\Documents\GitHub\Project\Fibonacci-Heap\FibHeap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\ahmed\Documents\GitHub\Project\Fibonacci-Heap\Node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\ahmed\Documents\GitHub\Project\Fibonacci-Heap\DLL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\ahmed\Documents\GitHub\Project\Fibonacci-Heap\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{7C3B7DCA-D939-3E6E-A476-4E78E57F5882}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E6C4358B-3D84-391C-BB92-05A9C0F891FF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

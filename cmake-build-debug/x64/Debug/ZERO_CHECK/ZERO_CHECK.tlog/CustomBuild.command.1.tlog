@@ -1,0 +1,10 @@
+^C:\USERS\AHMED\DOCUMENTS\GITHUB\PROJECT\FIBONACCI-HEAP\CMAKE-BUILD-DEBUG\CMAKEFILES\FA81813B19A586AEF78C609E23344E83\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\JetBrains\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" -SC:/Users/ahmed/Documents/GitHub/Project/Fibonacci-Heap -BC:/Users/ahmed/Documents/GitHub/Project/Fibonacci-Heap/cmake-build-debug --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/ahmed/Documents/GitHub/Project/Fibonacci-Heap/cmake-build-debug/FabHeap.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

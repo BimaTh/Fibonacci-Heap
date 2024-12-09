@@ -3,15 +3,16 @@
 	{
 		"generator" : 
 		{
-			"multiConfig" : false,
-			"name" : "Ninja"
+			"multiConfig" : true,
+			"name" : "Visual Studio 17 2022",
+			"platform" : "x64"
 		},
 		"paths" : 
 		{
-			"cmake" : "C:/Users/himoa/AppData/Local/Programs/CLion/bin/cmake/win/x64/bin/cmake.exe",
-			"cpack" : "C:/Users/himoa/AppData/Local/Programs/CLion/bin/cmake/win/x64/bin/cpack.exe",
-			"ctest" : "C:/Users/himoa/AppData/Local/Programs/CLion/bin/cmake/win/x64/bin/ctest.exe",
-			"root" : "C:/Users/himoa/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.29"
+			"cmake" : "C:/Program Files/JetBrains/CLion 2024.2.2/bin/cmake/win/x64/bin/cmake.exe",
+			"cpack" : "C:/Program Files/JetBrains/CLion 2024.2.2/bin/cmake/win/x64/bin/cpack.exe",
+			"ctest" : "C:/Program Files/JetBrains/CLion 2024.2.2/bin/cmake/win/x64/bin/ctest.exe",
+			"root" : "C:/Program Files/JetBrains/CLion 2024.2.2/bin/cmake/win/x64/share/cmake-3.29"
 		},
 		"version" : 
 		{
@@ -26,7 +27,7 @@
 	"objects" : 
 	[
 		{
-			"jsonFile" : "codemodel-v2-a5d8d9e714ace65f9b0b.json",
+			"jsonFile" : "codemodel-v2-e4ba3b5e64cfa5f35102.json",
 			"kind" : "codemodel",
 			"version" : 
 			{
@@ -35,7 +36,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cache-v2-d3696947b5b4918d8deb.json",
+			"jsonFile" : "cache-v2-9902e751bfac6f00a918.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -44,7 +45,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cmakeFiles-v1-0afa0f5e12f55eb35c3a.json",
+			"jsonFile" : "cmakeFiles-v1-e045696f02baf1e76247.json",
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -53,7 +54,7 @@
 			}
 		},
 		{
-			"jsonFile" : "toolchains-v1-7784e4f7537276046dfa.json",
+			"jsonFile" : "toolchains-v1-a436b61fae1f2caf6e9f.json",
 			"kind" : "toolchains",
 			"version" : 
 			{
@@ -66,7 +67,7 @@
 	{
 		"cache-v2" : 
 		{
-			"jsonFile" : "cache-v2-d3696947b5b4918d8deb.json",
+			"jsonFile" : "cache-v2-9902e751bfac6f00a918.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -76,7 +77,7 @@
 		},
 		"cmakeFiles-v1" : 
 		{
-			"jsonFile" : "cmakeFiles-v1-0afa0f5e12f55eb35c3a.json",
+			"jsonFile" : "cmakeFiles-v1-e045696f02baf1e76247.json",
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -86,7 +87,7 @@
 		},
 		"codemodel-v2" : 
 		{
-			"jsonFile" : "codemodel-v2-a5d8d9e714ace65f9b0b.json",
+			"jsonFile" : "codemodel-v2-e4ba3b5e64cfa5f35102.json",
 			"kind" : "codemodel",
 			"version" : 
 			{
@@ -96,7 +97,7 @@
 		},
 		"toolchains-v1" : 
 		{
-			"jsonFile" : "toolchains-v1-7784e4f7537276046dfa.json",
+			"jsonFile" : "toolchains-v1-a436b61fae1f2caf6e9f.json",
 			"kind" : "toolchains",
 			"version" : 
 			{
