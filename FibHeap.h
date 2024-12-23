@@ -119,9 +119,20 @@ public:
      * @post Node x is deleted from the heap.
      */
     void deleteNode(int k);
+    /**
+     * @brief Finds a node with a specific key in the heap.
+     * @param key The key value to search for.
+     * @return Pointer to the node with the specified key, or nullptr if not found.
+     * @pre The heap must not be empty.
+     * @post The node with the specified key is returned if found, otherwise nullptr.
+     */
     bool isEmpty();
+    /**
+     * @brief Displays the nodes in the heap.
+     * @pre None.
+     * @post The nodes in the heap are displayed.
+     */
     void display();
-
     /**
    * @brief Finds a node with a specific key in the heap.
    * @param key The key value to search for.
@@ -130,7 +141,14 @@ public:
    * @post The node with the specified key is returned if found, otherwise nullptr.
    */
     Node<T> *find(int key) const;
+    /**
+     * @brief Gets the size of the heap.
+     * @return size of the heap
+     */
+    int getSize();
+    ~FibHeap() = default;
 };
+
 
 template<typename T>
 void FibHeap<T>::insert(Node<T> *x) {
@@ -164,6 +182,8 @@ Node<T> *FibHeap<T>::extractMin() {
     minptr->right->left = minptr->left;
     if (minptr == minptr->right) {
         min = nullptr;
+        if (minptr->child == nullptr)
+            rootList.remove(minptr);
     } else {
         min = minptr->right;
         consolidate();
@@ -220,7 +240,6 @@ void FibHeap<T>::link(Node<T> *y, Node<T> *x) {
     x->child->insert(y);
     y->parent = x;
     y->mark = false;
-    std::cout << "Link node successful: " << y->key << " -> " << x->key << std::endl;
 }
 
 template<typename T>
@@ -248,9 +267,23 @@ Node<T> *FibHeap<T>::find(int key) const {
 template<typename T>
 void FibHeap<T>::modifyKey(int currentNodeKey, int new_k) {
     Node<T> *x = find(currentNodeKey);
+    if (x == nullptr) {
+        std::cerr << "Node with key " << currentNodeKey << " not found." << std::endl;
+        return;
+    }
+    if (x != nullptr && new_k > x->key) { // Cut from parent and insert into root list
+        Node<T> *y = x->parent;
+        if (y != nullptr) {
+            cut(x, y);
+            cascadingCut(y);
+        }
+        x->key = new_k;
+        if (x->key < min->key) {
+            min = x;
+        }
+        return;
+    }
 
-    if (x != nullptr && new_k > x->key)
-        std::cerr << "New key is greater than the current key." << std::endl;
 
     x->key = new_k;
     Node<T> *y = x->parent;
@@ -319,5 +352,8 @@ void FibHeap<T>::display() {
         current = current->right;
     } while (current != rootList.head);
 }
-
+template<typename T>
+int FibHeap<T>::getSize() {
+    return size;
+}
 #endif // FIBHEAP_H
