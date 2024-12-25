@@ -9,6 +9,7 @@
 #include "HospitalTaskManager.h"
 #include "VisualizeFibonacciHeap.h"
 #include "VisualizeTaskManager.h"
+#include "error_handler.h"
 #include <string>
 
 /**
@@ -54,14 +55,17 @@ int main(int, char **) {
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(glsl_version);
 
+    // Create am instance of the Error Handler Class,
+    error_handler handler;
+
     // Create an instance of your Fibonacci Heap (using std::string for the Name)
-    FibHeap<std::string> myHeap;
+    FibHeap<std::string> myHeap(&handler);
 
     // Create an instance of the visualization class
     VisualizeFibonacciHeap visualizer;
 
     // Create an instance of the HospitalTaskManager
-    HospitalTaskManager taskManager(&myHeap);
+    HospitalTaskManager taskManager(&myHeap, &handler);
 
     // Create an instance of the HospitalTaskManager
     VisualizeTaskManager manager;

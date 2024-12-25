@@ -4,6 +4,7 @@
 #include <functional>
 #include <iostream>
 #include "DoublyCircularLinkedList.h"
+#include "error_handler.h"
 
 // Forward declarations
 template<typename T>
@@ -29,6 +30,7 @@ private:
     Node<T> *min; ///< Pointer to the node with the minimum key.
     int size; ///< Number of nodes in the heap.
     DoublyCircularLinkedList<T> rootList; ///< Root linked list.
+    error_handler * handler;
 
     /**
      * @brief Links two nodes in the heap.
@@ -74,7 +76,7 @@ public:
     /**
      * @brief Constructs a new Fibonacci Heap object.
      */
-    FibHeap();
+    FibHeap(error_handler * handler);
 
     /**
      * @brief Inserts a node into the heap.
@@ -144,7 +146,7 @@ public:
 // Implementation of the FibHeap template class
 
 template<typename T>
-FibHeap<T>::FibHeap() : min(nullptr), size(0) {}
+FibHeap<T>::FibHeap(error_handler * handler) : handler(handler), min(nullptr), size(0) {}
 
 template<typename T>
 void FibHeap<T>::insert(Node<T> *x) {
@@ -156,12 +158,15 @@ void FibHeap<T>::insert(Node<T> *x) {
     if (min == nullptr || x->key < min->key)
         min = x;
     ++size;
+
+    handler->verbose_log(1, "Insert function called: " + x->getName() + "." );
 }
 
 template<typename T>
 Node<T> *FibHeap<T>::extractMin() {
     Node<T> *minptr = min;
     if (minptr == nullptr) {
+        handler->e_log(17);
         return nullptr;
     }
     if (minptr->child != nullptr) {
@@ -185,16 +190,22 @@ Node<T> *FibHeap<T>::extractMin() {
     }
     size--;
 
+    handler->verbose_log(1, "ExtractMin function called.");
     return minptr;
+
 }
 
 template<typename T>
 bool FibHeap<T>::isEmpty() {
+    handler->verbose_log(1, "Is Empty Function called.");
     return size == 0;
 }
 
 template<typename T>
 void FibHeap<T>::consolidate() {
+
+    handler->verbose_log(1,"Consolidating Fibonacci Heap...");
+
     const int fibsize = 45;
     Node<T> *A[fibsize];
     Node<T> *x = min;
@@ -237,12 +248,16 @@ void FibHeap<T>::link(Node<T> *y, Node<T> *x) {
     x->child->insert(y);
     y->parent = x;
     y->mark = false;
+    handler->verbose_log(1, "link function Called.");
 }
 
 template<typename T>
 Node<T> *FibHeap<T>::search(Node<T> *current, int key) const {
-    if (current == nullptr)
+    if (current == nullptr) {
+        handler->verbose_log(1, "Heap Empty.");
         return nullptr;
+    }
+
 
     Node<T> *start = current;
     do {
@@ -257,12 +272,12 @@ Node<T> *FibHeap<T>::search(Node<T> *current, int key) const {
         }
         current = current->right;
     } while (current != start);
-
     return nullptr;
 }
 
 template<typename T>
 Node<T> *FibHeap<T>::find(int key) const {
+    handler->verbose_log(1, "Search function Called.");
     return search(rootList.head, key);
 }
 
@@ -270,7 +285,7 @@ template<typename T>
 void FibHeap<T>::modifyKey(int currentNodeKey, int new_k) {
     Node<T> *x = find(currentNodeKey);
     if (x == nullptr) {
-        std::cerr << "Node with key " << currentNodeKey << " not found." << std::endl;
+        handler->e_log(17);
         return;
     }
     if (x != nullptr && new_k > x->key) { // Cut from parent and insert into root list
@@ -278,6 +293,7 @@ void FibHeap<T>::modifyKey(int currentNodeKey, int new_k) {
         Node<T>* mini = extractMin();
         mini->key = new_k;
         insert(mini);
+        handler->verbose_log(1, "ModifyKey function called");
         return;
     }
 
@@ -290,6 +306,7 @@ void FibHeap<T>::modifyKey(int currentNodeKey, int new_k) {
     if (x->key < min->key) {
         min=x;
     }
+    handler->verbose_log(1, "ModifyKey function called");
 }
 
 template<typename T>
@@ -298,6 +315,7 @@ void FibHeap<T>::cut(Node<T> *x, Node<T> *y) {
     rootList.insert(x);
     x->parent = nullptr;
     x->mark = false;
+    handler->verbose_log(1, "Cut Function called.");
 }
 
 template<typename T>
@@ -311,18 +329,20 @@ void FibHeap<T>::cascadingCut(Node<T> *y) {
             cascadingCut(z);
         }
     }
+    handler->verbose_log(1, "CascadingCut Function called.");
 }
 
 template<typename T>
 void FibHeap<T>::deleteNode(int key) {
     Node<T> *x = find(key);
     if (x == nullptr) {
-        std::cerr << "Node with key " << key << " not found." << std::endl;
+        // std::cerr << "Node with key " << key << " not found." << std::endl;
+        handler->e_log(17);
         return;
     }
     modifyKey(key, min->key - 1);
     extractMin();
-    std::cout << "Deleted node with key " << key << std::endl;
+    handler->verbose_log(1, "DeleteNode Function called.");
 }
 
 template<typename T>
@@ -332,8 +352,9 @@ Node<T> *FibHeap<T>::displayMinimum() {
 
 template<typename T>
 void FibHeap<T>::display() {
+    handler->verbose_log(1, "Display Function called.");
     if (!rootList.head) {
-        std::cout << "The Fibonacci heap is empty." << std::endl;
+        handler->e_log(18);
         return;
     }
 

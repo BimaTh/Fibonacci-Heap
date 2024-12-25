@@ -3,22 +3,24 @@
 
 #include "FibHeap.h"
 #include "Node.h"
+#include"../src/_env.h"
+
 #include <iostream>
 #include <string>
+
+#include "error_handler.h"
 
 // Forward Declaration
 class VisualizeTaskManager;
 
-
-const int MAX_TASKS = 100;
-
 class HospitalTaskManager {
 private:
     FibHeap<std::string> * taskHeap;
+    error_handler * handler;
 
 public:
 
-    HospitalTaskManager(FibHeap<std::string> * taskHeap): taskHeap(taskHeap){};
+    HospitalTaskManager(FibHeap<std::string> * taskHeap, error_handler * handler): taskHeap(taskHeap), handler(handler){};
 
     friend class VisualizeTaskManager;
 
@@ -31,60 +33,53 @@ public:
 
     void addTask(const std::string &description, int priority) {
         if (priority < 0) {
-            std::cerr << "Priority must be a positive integer.\n";
+            handler->e_log(00);
             return;
         }
         if (taskHeap->find(priority) != nullptr) {
-            std::cerr << "Task with the same priority already exists.\n";
+            handler->e_log(01);
             return;
         }
-        if (description.empty() || description.length() > 50) {
-            ////////////////////
-            std::cerr << "Description cannot be empty or more than 50 characters.\n";
-            return;
-        }
-        if (taskHeap->getSize() >= MAX_TASKS) {
-            std::cerr << "Task queue is full.\n";
+        if (description.empty() || description.length() > 50 || taskHeap->getSize() >= MAX_TASKS) {
+            handler->e_log(02);
             return;
         }
         Node<std::string> *newNode = new Node<std::string>(description, priority);
         taskHeap->insert(newNode);
-        std::cout << "Task added: " << description << " (Priority: " << priority << ")\n";
+        handler->verbose_log(0, "Task added: " + description);
     }
 
     void completeHighestPriorityTask() {
         Node<std::string> *highestPriorityTask = taskHeap->extractMin();
 
         if (highestPriorityTask == nullptr) {
-            std::cerr << "No tasks in the queue.\n";
+            handler->e_log(04);
             return;
         }
-        std::cout << "Completed task: " << highestPriorityTask->getName() << " (Priority: " << highestPriorityTask->
-                getKey() << ")\n";
+        handler->verbose_log(0, "Completed task: " + highestPriorityTask->getName());
         delete highestPriorityTask;
     }
 
     void updateTaskPriority(int oldPriority, int newPriority) {
         Node<std::string> *taskNode = taskHeap->find(oldPriority);
         if (taskNode == nullptr) {
-            std::cerr << "Task not found.\n";
+            handler->e_log(04);
             return;
         }
         if (newPriority < 0) {
-            std::cerr << "Priority must be a positive integer.\n";
+            handler->e_log(00);
             return;
         }
         if (oldPriority == newPriority) {
-            std::cerr << "New priority is the same as the old priority.\n";
+            handler->e_log(05);
             return;
         }
         if (taskHeap->find(newPriority) != nullptr) {
-            std::cerr << "Task with new priority already exists.\n";
+            handler->e_log(06);
             return;
         }
         taskHeap->modifyKey(taskNode->getKey(), newPriority);
-        std::cout << "Task priority updated: " << taskNode->getName() << " (Old Priority: " << oldPriority <<
-                ", New Priority: " << newPriority << ")\n";
+        handler->verbose_log(0, "Task priority updated: " + taskNode->getName());
     }
 
     int countTasks() {
