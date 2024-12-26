@@ -81,6 +81,7 @@ public:
     int getDeg() const;
 
     void setData(Patient * data);
+    void setName(T Name);
     Patient *getData();
 
     // Friend class declarations
@@ -99,7 +100,10 @@ template<typename T>
 void Node<T>::setData(Patient * data) {
  this->data = data;
 }
-
+template<typename T>
+void Node<T>::setName(T Name) {
+ this->Name = Name;
+}
 template<typename T>
 Patient* Node<T>::getData() {
  return this->data;

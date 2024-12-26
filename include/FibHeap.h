@@ -284,6 +284,14 @@ Node<T> *FibHeap<T>::find(int key) const {
 template<typename T>
 void FibHeap<T>::modifyKey(int currentNodeKey, int new_k) {
     Node<T> *x = find(currentNodeKey);
+    if (find(new_k) != nullptr) {
+        handler->e_log(16);
+        return;
+    }
+    if (x->key == new_k) {
+        handler->e_log(15);
+        return;
+    }
     if (x == nullptr) {
         handler->e_log(17);
         return;

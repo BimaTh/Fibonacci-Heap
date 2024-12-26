@@ -27,6 +27,7 @@ public:
      */
     Patient(std::string description, int age, std::string gender) :
     description(description), age(age),gender(gender) {}
+    Patient() = default;
 
     /**
      * @brief Destructor for the Patient object.
@@ -38,6 +39,9 @@ public:
     std::string getGender() const;
 
     int getAge() const;
+    void setDescription(const std::string& description);
+    void setGender(const std::string& gender);
+    void setAge(int age);
 };
 
 std::string Patient::getDescription() const {
@@ -50,6 +54,20 @@ std::string Patient::getGender() const {
 
 int Patient::getAge() const {
     return age;
+}
+
+void Patient::setDescription(const std::string& description)
+{
+    this->description = description;
+}
+
+void Patient::setGender(const std::string& gender)
+{
+    this->gender = gender;
+}
+void Patient::setAge(int age)
+{
+    this->age = age;
 }
 
 #endif // PATIENT_H

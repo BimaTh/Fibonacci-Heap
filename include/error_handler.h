@@ -16,11 +16,12 @@ private:
 
     std::vector<TimedMessage> activeMessages;
 
-    std::array<std::string, 4> const errorClass = {
+    std::array<std::string, 5> const errorClass = {
         "Hospital Task Manager: ", // ID: 0
         "Fibonacci Heap: ", // ID: 1
         "Doubly Circular Linked List: ", // ID: 2
-        "VisualizeFibboacciHeap", // ID: 3
+        "VisualizeFibonacciHeap: ", // ID: 3
+        "VisualizeTaskManager: " // ID: 4
     };
     std::array<std::string, 30> const errorMessages = {
         "Priority must be a positive integer.\n", // ID: 0

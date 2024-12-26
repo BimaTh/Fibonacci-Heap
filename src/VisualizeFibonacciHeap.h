@@ -284,9 +284,20 @@ public:
             // Button to trigger insertion
             // ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(15, 15)); // Increase button size
             if (ImGui::Button("Insert")) {
-                std::string nameStr(insertName);
-                Node<std::string> *node = new Node<std::string>(nameStr, insertValue);
-                heap.insert(node);
+                if (insertValue >= 0 && heap.find(insertValue) == nullptr) {
+                    std::string nameStr(insertName);
+                    Node<std::string> *node = new Node<std::string>(nameStr, insertValue);
+                    heap.insert(node);
+                }
+                else
+                {
+                    if (insertValue < 0) {
+                        handler->e_log(10);
+                    }
+                    if (heap.find(insertValue) != nullptr) {
+                        handler->e_log(11);
+                    }
+                }
             }
             // ImGui::PopStyleVar();
 
@@ -309,7 +320,11 @@ public:
             // Button to trigger key modification
             // ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(15, 15)); // Increase button size
             if (ImGui::Button("Modify Key")) {
-                heap.modifyKey(modifyKey, newValue);
+                if (newValue >= 0)
+                    heap.modifyKey(modifyKey, newValue);
+                else
+                    handler->e_log(10);
+
             }
             // ImGui::PopStyleVar();
 
